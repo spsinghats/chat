@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Chat Room: #{title}
+  ul.pages
+      li.chat.page
+        .chatArea
+          ul.messages
+        |  
+        input.inputMessage(placeholder='Type here...')
+      li.login.page
+        .form
+          h3.title What&apos;s your username?
+          |  
+          input.usernameInput(type='text', maxlength='14')
+          input#roomName(type='hidden', value=title)
+          #error-container(style='font-size:14px')
+  script(src="https://code.jquery.com/jquery-1.10.2.min.js")
+  script(src="/socket.io/socket.io.js")
+  script(src="/javascripts/chatClient.js")
